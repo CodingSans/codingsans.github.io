@@ -1,43 +1,47 @@
-var dest = "./";
+
+var dest = './';
 var src = './src/';
 
 module.exports = {
-  browserSync: {
-    server: {
-      baseDir: "./"
+  browserSync : {
+    server : {
+      baseDir : './'
     },
     port : 8080,
-    injectChanges: true,
+    injectChanges : true,
+    watch : ['**/*.{html}', 'assets/**/*.{js,css}', '!node_modules/**/*', '!src/**/*', '!gulp/**/*'],
   },
-  less: {
-    src: src + 'less/*.less',
-    dest: dest + '/css/',
-    settings : {
-      paths: [ src + '/less/includes' ],
-      plugins : [new (require("less-plugin-clean-css"))({advanced: true})]
-    },
+  jshint : {
+    src : ['src/**/*.js', 'gulp/**/*.js', '!src/bower_components/**/*'],
+    watch : ['src/**/*.js', 'gulp/**/*.js', '!src/bower_components/**/*'],
+    throttleTime : 30000
   },
-  ejs: {
-    src: src + '/templates/**/*.ejs',
-    dest: dest
+  stylesheets : {
+    src : src + 'stylesheets/**/*.css.scss',
+    dest : dest + '/assets/',
+    watch : src + 'stylesheets/**/*.{css,scss,sass}',
   },
-  browserify: {
-    // A separate bundle will be generated for each
-    // bundle config in the list below
-    bundleConfigs: [{
-      name : 'bundle.js',
-      dest : dest + '/js/',
-      entries: [src + '/js/bundle.js'], // Only need initial file, browserify finds the deps
-      basedir: __dirname + '/..',
-      debug: true, // Gives us sourcemapping
-      cache: {}, packageCache: {}, fullPaths: true // Requirement of watchify
-    }],
-    
-    productConfigs : [{
-      name : 'bundle.js',
-      dest : dest + '/js/',
-      entries: [src + '/js/bundle.js'], // Only need initial file, browserify finds the deps
-      basedir: __dirname + '/..'
-    }]
+  scripts : {
+    src : [src + 'scripts/**/*.js.glob'],
+    dest : dest + '/assets/',
+    watch : src + 'scripts/**/*.js.glob',
+  },
+  html : {
+    src : src + '/html/**/*.html.html',
+    dest : dest,
+    watch : [src + '/html/**/*.html.html'],
+  },
+  assets : {
+    src : src + '/assets/**/*',
+    dest : dest + '/assets/',
+    watch : [src + '/assets/**/*'],
+  },
+  clear : {
+    files : ['**/*.{html}', 'assets/**/*', '!node_modules/**/*', '!src/**/*', '!gulp/**/*'],
+  },
+  watch : {
+    options : {
+      debounceDelay: 2000
+    }
   }
 };

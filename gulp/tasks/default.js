@@ -1,3 +1,15 @@
-var gulp = require('gulp');
+var gulp      = require('gulp');
+var gulpsync  = require('gulp-sync')(gulp);
 
-gulp.task('default', ['less', 'ejs', 'watch']);
+gulp.task('default', gulpsync.sync(['build', 'watch']));
+
+gulp.task('build', ['jshint', 'scripts', 'stylesheets', 'html', 'assets']);
+
+gulp.task('watch', [
+    'watch:jshint',
+    'watch:scripts',
+    'watch:stylesheets',
+    'watch:html',
+    'watch:assets',
+    'browserSync',
+  ]);

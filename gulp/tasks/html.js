@@ -12,7 +12,9 @@ gulp.task('html', function () {
   return gulp.src(config.src)
     .pipe(errorHandler())
     .pipe(renameToExtension('.html'))
-    .pipe(gulp.dest(config.dest));
+    .pipe(gulp.dest(configBase.destFolders.dev + config.dest))
+
+    .pipe(gulp.dest(configBase.destFolders.prod + config.dest));
 
 });
 

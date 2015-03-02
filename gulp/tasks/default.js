@@ -1,7 +1,7 @@
 var gulp      = require('gulp');
 var gulpsync  = require('gulp-sync')(gulp);
 
-gulp.task('default', gulpsync.sync(['build', 'watch']));
+gulp.task('default', gulpsync.sync(['clear', 'build', 'watch']));
 
 gulp.task('build', ['jshint', 'scripts', 'stylesheets', 'html', 'assets']);
 

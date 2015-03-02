@@ -1,8 +1,10 @@
 var gulp                = require('gulp');
+var uglify              = require('gulp-uglify');
 var concat              = require('gulp-concat');
 var notify              = require('gulp-notify');
 var foreach             = require('gulp-foreach');
 var sourcemaps          = require('gulp-sourcemaps');
+var stripDebug          = require('gulp-strip-debug');
 var fs                  = require('fs');
 var path                = require('path');
 var _                   = require('lodash');
@@ -10,6 +12,7 @@ var _                   = require('lodash');
 var configBase          = require('../config');
 var config              = configBase.scripts;
 var errorHandler        = require('../utils/errorHandler');
+var removeSourceMap     = require('../utils/removeSourceMap');
 var renameToExtension   = require('../utils/renameToExtension');
 
 function getGlobFromFile(filePath) {
@@ -38,18 +41,35 @@ function buildScripts(filePath) {
       var filename = path.basename(file.path);
 
       return gulp.src(globSrc, {
-        cwd : dirname,
-        base : dirname,
-        nodir : true
-      })
+          cwd : dirname,
+          base : dirname,
+          nodir : true
+        })
         .pipe(errorHandler())
+
         .pipe(sourcemaps.init())
+
           .pipe(concat(filename))
-        .pipe(sourcemaps.write())
-        .pipe(renameToExtension('.js'));
+          .pipe(renameToExtension('.js'))
+
+        .pipe(sourcemaps.write({ sourceRoot : function(file) {
+
+          file.sourceMap.sources = file.sourceMap.sources.map(function(filePath) {
+            return path.join('./src/scripts/', filePath);
+          });
+
+          return '.';
+        } }))
+
+        .pipe(gulp.dest(configBase.destFolders.dev + config.dest))
+
+        .pipe(removeSourceMap())
+        .pipe(stripDebug())
+        .pipe(uglify())
+
+        .pipe(gulp.dest(configBase.destFolders.prod + config.dest));
 
     }))
-    .pipe(gulp.dest(config.dest))
     .pipe(notify({
       onLast : true,
       message : 'Scripts task done.'

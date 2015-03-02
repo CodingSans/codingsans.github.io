@@ -1,11 +1,16 @@
+var gutil = require('gulp-util');
 
 var dest = './';
 var src = './src/';
 
 module.exports = {
+  destFolders : {
+    prod : './',
+    dev : './dev/',
+  },
   browserSync : {
     server : {
-      baseDir : './'
+      baseDir : !gutil.env.prod ? 'dev/' : './',
     },
     port : 8080,
     injectChanges : true,
@@ -17,14 +22,17 @@ module.exports = {
     throttleTime : 30000
   },
   stylesheets : {
+    autoprefix : ['last 5 versions', '>1%', 'Firefox ESR', 'Opera >= 12.1', 'IE >= 8'],
     src : src + 'stylesheets/**/*.css.scss',
-    dest : dest + '/assets/',
+    dest : '/assets/',
     watch : src + 'stylesheets/**/*.{css,scss,sass}',
+    sourcemapRoot : src + 'stylesheets/',
   },
   scripts : {
     src : [src + 'scripts/**/*.js.glob'],
     dest : dest + '/assets/',
     watch : src + 'scripts/**/*.js.glob',
+    sourcemapRoot : src + 'scripts/',
   },
   html : {
     src : src + '/html/**/*.html.html',
@@ -37,7 +45,7 @@ module.exports = {
     watch : [src + '/assets/**/*'],
   },
   clear : {
-    files : ['**/*.{html}', 'assets/**/*', '!node_modules/**/*', '!src/**/*', '!gulp/**/*'],
+    files : ['**/*.{html}', 'assets/**/*', 'dev/**/*', '!node_modules/**/*', '!src/**/*', '!gulp/**/*'],
   },
   watch : {
     options : {

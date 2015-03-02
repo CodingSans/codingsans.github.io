@@ -11,7 +11,9 @@ gulp.task('assets', function () {
 
   return gulp.src(config.src)
     .pipe(errorHandler())
-    .pipe(gulp.dest(config.dest));
+    .pipe(gulp.dest(configBase.destFolders.dev + config.dest))
+
+    .pipe(gulp.dest(configBase.destFolders.prod + config.dest));
 
 });
 

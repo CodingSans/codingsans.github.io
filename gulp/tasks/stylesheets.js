@@ -1,11 +1,15 @@
 var gulp                = require('gulp');
 var sass                = require('gulp-sass');
 var notify              = require('gulp-notify');
+var minifyCSS           = require('gulp-minify-css');
 var sourcemaps          = require('gulp-sourcemaps');
+var autoprefixer        = require('gulp-autoprefixer');
+var path                = require('path');
 
 var configBase          = require('../config');
 var config              = configBase.stylesheets;
 var errorHandler        = require('../utils/errorHandler');
+var removeSourceMap     = require('../utils/removeSourceMap');
 var renameToExtension   = require('../utils/renameToExtension');
 
 gulp.task('stylesheets', function () {
@@ -15,10 +19,23 @@ gulp.task('stylesheets', function () {
 
     .pipe(sourcemaps.init())
       .pipe(sass())
-    .pipe(sourcemaps.write())
+      .pipe(autoprefixer(config.autoprefix))
+      .pipe(sourcemaps.write({ sourceRoot : function(file) {
+
+        file.sourceMap.sources = file.sourceMap.sources.map(function(filePath) {
+          return path.join('./src/stylesheets/', filePath);
+        });
+
+        return '.';
+      } }))
 
     .pipe(renameToExtension('.css'))
-    .pipe(gulp.dest(config.dest))
+    .pipe(gulp.dest(configBase.destFolders.dev + config.dest))
+
+    .pipe(removeSourceMap())
+    .pipe(minifyCSS())
+
+    .pipe(gulp.dest(configBase.destFolders.prod + config.dest))
     .pipe(notify({
       onLast : true,
       message : 'Stylesheets task done.'

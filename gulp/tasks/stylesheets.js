@@ -12,6 +12,10 @@ var errorHandler        = require('../utils/errorHandler');
 var removeSourceMap     = require('../utils/removeSourceMap');
 var renameToExtension   = require('../utils/renameToExtension');
 
+function unixStylePath(filePath) {
+  return filePath.split(path.sep).join('/');
+}
+
 gulp.task('stylesheets', function () {
 
   return gulp.src(config.src)
@@ -23,7 +27,7 @@ gulp.task('stylesheets', function () {
       .pipe(sourcemaps.write({ sourceRoot : function(file) {
 
         file.sourceMap.sources = file.sourceMap.sources.map(function(filePath) {
-          return path.join('./src/stylesheets/', filePath);
+          return unixStylePath(path.join('./src/stylesheets/', filePath));
         });
 
         return '.';

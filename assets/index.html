@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hexagon test</title>
+		<style>
+			.wrapper {
+				background-color: rgba(211, 211, 211, 0.3);
+			}
+			.container {
+				position: relative;
+				width: 1182px;
+				height: 764px;
+				left: 50%;
+				transform: translate(-50%, 0) scale(0.83);
+			}
+			.hex {
+				position: absolute;
+				background-color: transparent;
+				background-size: 100% auto;
+				background-position: center;
+				background-repeat: no-repeat;
+				width: 300px;
+				height: 260px;
+			}
+		</style>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		
+		<script>
+			$(document).ready(function(){
+				var bg = "CodingSans_hex.png";
+				var bgs = ["nodejs_hex.png",
+					"docker_hex.png",
+					"bs_hex.png",
+					"cordova_hex.png",
+					"angular_hex.png",
+					"wp_hex.png",
+					"aws_hex.png",
+					"mongo_hex.png",
+					"redis_hex.png",
+					"android_hex.png",
+					"ios_hex.png",
+					"react_hex.png"];
+				
+				$(document).on("click", ".cs", loadImages);
+				
+				loadImages();
+				
+				function shuffle(){
+					var arr = [];
+					while(bgs.length) {
+						arr.push(bgs.splice(Math.random()*bgs.length,1));
+					}
+					bgs = arr;
+				}
+				
+				function loadImages(){
+					shuffle();
+					var imgs = $(".hex");
+					var i = 0, j = 0;
+					while ( i < imgs.length ) {
+						var img = $(imgs[i]);
+						
+						if (i === 6)
+							img.css("background-image", 'url('+bg+')');
+						else {
+							img.css("background-image", 'url('+bgs[j%(bgs.length)]+')');
+							j++;
+						}
+						img.css("transform" , 'translate('+((img.attr('col')-1)*220)+'px, '+((img.attr('row')-1)*126)+'px)');
+
+						i++;
+					}
+				}
+			});
+			
+		</script>
+	</head>
+	<body>
+		<div class="wrapper">
+		<div class="container">
+			<div class="hex" row="1" col="1"></div>
+			<div class="hex" row="1" col="3"></div>
+			<div class="hex" row="1" col="5"></div>
+			<div class="hex" row="2" col="2"></div>
+			<div class="hex" row="2" col="4"></div>
+			<div class="hex" row="3" col="1"></div>
+			<div class="hex cs" row="3" col="3"></div>
+			<div class="hex" row="3" col="5"></div>
+			<div class="hex" row="4" col="2"></div>
+			<div class="hex" row="4" col="4"></div>
+			<div class="hex" row="5" col="1"></div>
+			<div class="hex" row="5" col="3"></div>
+			<div class="hex" row="5" col="5"></div>
+		</div>
+		</div>
+	</body>
+</html>

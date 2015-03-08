@@ -1,0 +1,21 @@
+Alapja : http://pixelarity.com/iconic
+
+Fejléc:
+
+Nagyban : Coding Sans
+kicsiben: Coding without compromises
+
+CTA button - Hire US
+
+Alatta
+
+4 buborék 
+Kép:	Node.js logo | Angular, Html5 és bootstrap  logo | Mongo Redis Foundarion Db és postre logo | iOS Andoid Windows phone logo  
+Szöveg:	Back end | Frontend | Databases | Mobile 
+
+Alatta 
+Bal oldali szöveg még kitalálas alatt 
+
+
+
+Jobb oldalon fejek Alatta kis szöveg: Máté Wohlmuth / Managing Director, Gábor Latotty Tóth / Backend + AngularJS, László Lacka Csele / Frontend + Mobile, Zoltán Tóth / Graphic Designer, Tamás Soós / UX Designer

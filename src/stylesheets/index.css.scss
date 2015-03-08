@@ -1,5 +1,228 @@
-$bgc : #f00;
+@import "../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
 body {
-  background-color: $bgc;
+  font-family: 'Comic Neue Angular', sans-serif;
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 1170px;
+  overflow: hidden;
+
+  background-image: url(square_noise_bg_op10_1920.png);
+  background-color: rgb(200, 200, 200);
+  background-size: 1170px auto;
+  background-position: top center;
+
+  font-size: 14px;
+
+  -webkit-box-shadow: 0px 0px 40px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    0px 0px 40px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         0px 0px 40px 0px rgba(50, 50, 50, 0.75);
+}
+
+
+.header > .head_logo {
+  background-color: rgba(255, 255, 255, 0.25);
+  background-image: url(CodingSansLogoTransparent.png);
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+  height: 160px;
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: 992px) {
+  .header > .head_logo {
+    background-size: auto 200%;
+  }
+}
+
+.header .head_tech .tech {
+  padding: 0;
+  text-align: center;
+}
+
+.header .head_tech .tech_badge {
+  padding: 0;
+  margin: 10px auto;
+  border-radius: 50%;
+  
+}
+
+.header .head_tech .tech_badge .text {
+  display: none;
+}
+
+.header .head_tech .tech_badge .img {
+  background-color: rgba(255, 255, 255, 0.25);
+  padding: 0;
+  margin: 0 auto;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-size: auto 83%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.header .head_tech .tech_badge .img.cross {
+  background-image: url(cross_platform_icon.png);
+}
+
+.header .head_tech .tech_badge .img.frontend {
+  background-image: url(backend_icon.png);
+}
+
+.header .head_tech .tech_badge .img.backend {
+  background-image: url(frontend_icon.png);
+}
+
+.header .head_touch > .head_btn {
+  margin: 50px auto;
+  width: 124px;
+}
+
+.header .head_touch > .head_btn > a {
+  background-color: white;
+  padding: 15px;
+  border: 2px #1E88E5 solid;
+  border-radius: 10px;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  color: #1E88E5;
+}
+
+.header .head_touch > .head_btn > a:hover {
+  background-color: #E7E7E7;
+  text-decoration: none;
+  color: #1E88E5;
+}
+
+.wrapper {
+  background-color: rgb(231, 231, 231);
+}
+.container {
+  transform-origin: top left;
+  position: relative;
+  width: 1182px;
+  height: 764px;
+  padding: 0;
+}
+.hex {
+  position: absolute;
+  background-color: transparent;
+  background-size: 100% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 260px;
+  transition: all 0.5s linear;
+  top : 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hex.cs {
+  z-index: 10;
+}
+
+.hex:hover .overlay {
+  background-image: url(overlay_hex.png);
+  background-size: 100% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 300px;
+  height: 260px;
+}
+
+.team-cont {
+  background-color: #1E88E5;
+}
+
+.team {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.team > .part {
+  padding: 15px 0px;
+}
+
+.team > .part:first-child {
+  padding: 15px 25px;
+  text-align: justify;
+  font-size: 20px;
+}
+
+.member {
+  padding: 10px 0;
+}
+
+.member .avatar {
+  height: 90px;
+  background-image: url(lacka_hoff_256.png);
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.member .avatar.mate {
+  background-image: url(mate_wohlmuth_circle_256.png);
+}
+
+.member .avatar.totty {
+  background-image: url(totty_circle_256.png);
+}
+
+.member .avatar.zoli {
+  background-image: url(tz_image_256.png);
+}
+
+.member .text {
+  padding: 0;
+  padding-left: 3px;
+}
+
+.member .text > div {
+  height: 45px;
+  line-height: 25px;
+  font-size: 15px;
+  vertical-align: top;
+  font-weight: normal;
+}
+
+.member .text > div:first-child {
+  line-height: 70px;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+.contact_form_cont {
+  background-color: #E7E7E7;
+}
+
+.contact_form {
+  padding: 15px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact_form > form > .form-group {
+  padding: 5px;
+}
+
+.form_title {
+  font-size: 24px;
+}
+
+.footer {
+  background-color: #E7E7E7;
+  text-align: center;
+  padding: 10px 0;
 }

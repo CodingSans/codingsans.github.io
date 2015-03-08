@@ -15,6 +15,10 @@ var errorHandler        = require('../utils/errorHandler');
 var removeSourceMap     = require('../utils/removeSourceMap');
 var renameToExtension   = require('../utils/renameToExtension');
 
+function unixStylePath(filePath) {
+  return filePath.split(path.sep).join('/');
+}
+
 function getGlobFromFile(filePath) {
   var content = fs.readFileSync(filePath);
 
@@ -55,7 +59,7 @@ function buildScripts(filePath) {
         .pipe(sourcemaps.write({ sourceRoot : function(file) {
 
           file.sourceMap.sources = file.sourceMap.sources.map(function(filePath) {
-            return path.join('./src/scripts/', filePath);
+            return unixStylePath(path.join('./src/scripts/', filePath));
           });
 
           return '.';

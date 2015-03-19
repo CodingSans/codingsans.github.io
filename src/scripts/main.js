@@ -1,16 +1,15 @@
 (function() {
-
-$(window).resize(function(){
+  
+function resize(){
   var ratio = $(".content").width()/1182;
   $(".wrapper").css("height", 764 * ratio);
-
   $(".container").css("transform", "scale("+ratio+")");
-});
+}
+
+$(window).resize(resize);
+
 $(document).ready(function(){
-  var ratio = $(".content").width()/1182;
-  $(".wrapper").css("height", 764 * ratio);
-
-  $(".container").css("transform", "scale("+ratio+")");
+  resize();
 
   var bg = "CodingSans_hex.png";
   var bgs = ["nodejs_hex.png",
@@ -72,7 +71,10 @@ $(document).ready(function(){
 
     while ( i < brand.length ) {
       var img = $(brand[i]);
+      img.css("-ms-transform" , "translate("+((img.attr("col")-1)*220)+"px, "+((img.attr("row")-1)*126)+"px)");
+      img.css("-webkit-transform" , "translate("+((img.attr("col")-1)*220)+"px, "+((img.attr("row")-1)*126)+"px)");
       img.css("transform" , "translate("+((img.attr("col")-1)*220)+"px, "+((img.attr("row")-1)*126)+"px)");
+      
       img.attr("href", urls[i]);
       i++;
     }
@@ -105,6 +107,8 @@ $(document).ready(function(){
       }
       img.css("top" , "0");
       img.css("left" , "0");
+      img.css("-ms-transform" , "translate("+((img.attr("col")-1)*220)+"px, "+((img.attr("row")-1)*126)+"px)");
+      img.css("-webkit-transform" , "translate("+((img.attr("col")-1)*220)+"px, "+((img.attr("row")-1)*126)+"px)");
       img.css("transform" , "translate("+((img.attr("col")-1)*220)+"px, "+((img.attr("row")-1)*126)+"px)");
       i++;
     }

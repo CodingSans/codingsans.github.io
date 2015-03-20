@@ -48,7 +48,7 @@ body {
   padding: 0;
   margin: 0 auto;
   border-radius: 50%;
-  
+
 }
 
 .header .head_tech .tech_badge .text {
@@ -66,7 +66,7 @@ body {
   background-size: auto 83%;
   background-repeat: no-repeat;
   background-position: center;
-  
+
   -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
@@ -209,7 +209,7 @@ body {
   padding: 40px 15px 5px 15px;
   text-align: justify;
   font-size: 18px;
-  
+
   right: auto;
   left: 0;
 }
@@ -235,7 +235,7 @@ body {
   background-size: auto 100%;
   background-position: center;
   background-repeat: no-repeat;
-  
+
   -webkit-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.75);
@@ -317,7 +317,7 @@ body {
   font-size: 32px;
 }
 
-.contact_us > .mail > a {
+.contact_us > .mail > div {
   font-size: 28px;
   color: white;
 }

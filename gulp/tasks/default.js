@@ -3,7 +3,7 @@ var gulpsync  = require('gulp-sync')(gulp);
 
 gulp.task('default', gulpsync.sync(['clear', 'build', 'watch']));
 
-gulp.task('build', ['jshint', 'scripts', 'stylesheets', 'html', 'assets']);
+gulp.task('build', [/*'jshint',*/ 'scripts', 'stylesheets', 'html', 'assets']);
 
 gulp.task('watch', [
     'watch:jshint',

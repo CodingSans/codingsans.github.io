@@ -1255,6 +1255,9 @@ p {
   max-height:90px;
 }
 
+#contact i {
+  padding-right:12px;
+}
 
 @media(max-width:415px) {
   #firstRow img {

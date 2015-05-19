@@ -115,7 +115,7 @@
         },
 
         hoverEffect: function() {
-
+            
             // Simple parallax effect
             $('#portfoliolist .portfolio').hover(
                 function() {

@@ -23,14 +23,14 @@ module.exports = {
   },
   stylesheets : {
     autoprefix : ['last 5 versions', '>1%', 'Firefox ESR', 'Opera >= 12.1', 'IE >= 8'],
-    src : src + 'stylesheets/**/*.css.scss',
-    dest : '/assets/',
+    src : src + 'stylesheets/**/*.css',
+    dest : '/assets/css/',
     watch : src + 'stylesheets/**/*.{css,scss,sass}',
     sourcemapRoot : src + 'stylesheets/',
   },
   scripts : {
     src : [src + 'scripts/**/*.js.glob'],
-    dest : dest + '/assets/',
+    dest : dest + '/assets/js/',
     watch : src + 'scripts/**/*.js.glob',
     sourcemapRoot : src + 'scripts/',
   },

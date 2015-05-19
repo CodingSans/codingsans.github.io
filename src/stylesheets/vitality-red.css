@@ -1255,6 +1255,10 @@ p {
   max-height:90px;
 }
 
+h4 i {
+  padding-right:10px;
+}
+
 
 @media(max-width:415px) {
   #firstRow img {

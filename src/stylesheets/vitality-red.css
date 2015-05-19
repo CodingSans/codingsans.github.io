@@ -1261,6 +1261,10 @@ h4 i {
 
 
 @media(max-width:415px) {
+  header img {
+    max-width:250px;
+    max-height:250px;
+  }
   #firstRow img {
     max-height:60px;
   }
@@ -1296,5 +1300,13 @@ h4 i {
 @media(max-width:415px) and (min-height:560px) { 
   .intro-content {
     padding-top:30%;
+  }
+  
+  .intro-content img {
+    width:230px;
+  }
+  
+  header .brand-name {
+    font-size:25px;
   }
 }

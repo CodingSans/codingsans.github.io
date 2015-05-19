@@ -1284,5 +1284,17 @@ h4 i {
     margin-top:7px;
   }
   
+  .intro-content{
+    padding-top:20px;
+  }
   
+  .intro-content img {
+     width:170px;
+  }
+}
+
+@media(max-width:415px) and (min-height:560px) { 
+  .intro-content {
+    padding-top:30%;
+  }
 }
